@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -127,7 +126,7 @@ const ProductsSection = () => {
                       <Heart className="w-5 h-5" />
                     </Button>
                     <Button size="icon" className="anime-button">
-                      <Shopping cart className="w-5 h-5" />
+                      <ShoppingCart className="w-5 h-5" />
                     </Button>
                   </div>
                   
