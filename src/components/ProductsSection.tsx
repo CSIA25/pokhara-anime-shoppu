@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,6 +6,15 @@ import { Badge } from '@/components/ui/badge';
 import { Heart, ShoppingCart, Star } from 'lucide-react';
 
 const ProductsSection = () => {
+  const productImages = [
+    "https://images.unsplash.com/photo-1592547097938-7942b22df3db?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b25lJTIwcGllY2V8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1621478374422-35206faeddfb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25lJTIwcGllY2V8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1547861533-ae8896b04d10?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8b25lJTIwcGllY2V8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1560746420-1b4dc6d92d17?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b25lJTIwcGllY2V8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1629019725048-75f3fd5edd1c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG9uZSUyMHBpZWNlfGVufDB8fDB8fHww",
+    "https://images.unsplash.com/photo-1590796583326-afd3bb20d22d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFuaW1lfGVufDB8fDB8fHww"
+  ];
+
   const featuredProducts = [
     {
       id: 1,
@@ -111,14 +121,16 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {featuredProducts.map((product) => (
+          {featuredProducts.map((product, index) => (
             <Card key={product.id} className="anime-card group overflow-hidden">
               <div className="relative">
-                {/* Product Image Placeholder */}
+                {/* Product Image */}
                 <div className="aspect-square bg-gradient-to-br from-sakura-100 to-anime-blue-100 flex items-center justify-center relative overflow-hidden">
-                  <div className="w-24 h-24 bg-sakura-gradient rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">{product.name.charAt(0)}</span>
-                  </div>
+                  <img 
+                    src={productImages[index] || productImages[0]} 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                   
                   {/* Hover Actions */}
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">

@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, Truck } from 'lucide-react';
 
 const HeroSection = () => {
+  const heroImages = [
+    "https://images.unsplash.com/photo-1560746420-1b4dc6d92d17?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8b25lJTIwcGllY2V8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1629019725048-75f3fd5edd1c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG9uZSUyMHBpZWNlfGVufDB8fDB8fHww",
+    "https://images.unsplash.com/photo-1590796583326-afd3bb20d22d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGFuaW1lfGVufDB8fDB8fHww",
+    "https://images.unsplash.com/photo-1611457194403-d3aca4cf9d11?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGFuaW1lfGVufDB8fDB8fHww"
+  ];
+
   return (
     <section id="home" className="relative min-h-screen bg-anime-gradient overflow-hidden">
       {/* Background decorative elements */}
@@ -61,21 +68,23 @@ const HeroSection = () => {
           <div className="relative">
             <div className="grid grid-cols-2 gap-6">
               {/* Featured Product Cards */}
-              {[1, 2, 3, 4].map((item, index) => (
+              {heroImages.map((image, index) => (
                 <div
-                  key={item}
+                  key={index}
                   className={`anime-card p-4 manga-accent ${
                     index % 2 === 0 ? 'animate-float' : ''
                   }`}
                   style={{ animationDelay: `${index * 0.5}s` }}
                 >
-                  <div className="aspect-square bg-gradient-to-br from-sakura-100 to-anime-blue-100 rounded-lg mb-3 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-sakura-gradient rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">{item}</span>
-                    </div>
+                  <div className="aspect-square bg-gradient-to-br from-sakura-100 to-anime-blue-100 rounded-lg mb-3 overflow-hidden">
+                    <img 
+                      src={image} 
+                      alt={`Anime Figure ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="font-zen font-semibold text-midnight-800 mb-1">
-                    Anime Figure #{item}
+                    Anime Figure #{index + 1}
                   </h3>
                   <p className="text-sakura-600 font-medium">NPR 2,999</p>
                 </div>
